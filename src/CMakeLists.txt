@@ -6,9 +6,9 @@ set (tinyb_LIB_INCLUDE_DIRS
 
 include_directories(
   ${tinyb_LIB_INCLUDE_DIRS}
-  ${GLIB2_INCLUDE_DIRS}
-  ${GIO_INCLUDE_DIRS}
-  ${GIO-UNIX_INCLUDE_DIRS}
+  ${GLIB2_STATIC_INCLUDE_DIRS}
+  ${GIO_STATIC_INCLUDE_DIRS}
+  ${GIO-UNIX_STATIC_INCLUDE_DIRS}
 )
 
 set (tinyb_LIB_SRCS
@@ -31,12 +31,12 @@ set (tinyb_LIB_GLOB_HEADERS
   ${PROJECT_SOURCE_DIR}/api/tinyb.hpp
 )
 
-add_library (tinyb SHARED ${tinyb_LIB_SRCS})
+add_library (tinyb STATIC ${tinyb_LIB_SRCS})
 target_link_libraries (
   tinyb
   ${CMAKE_THREAD_LIBS_INIT}
-  ${GLIB2_LIBRARIES}
-  ${GIO_LIBRARIES}
+  ${GLIB2_STATIC_LIBRARIES}
+  ${GIO_STATIC_LIBRARIES}
 )
 
 set_target_properties(
